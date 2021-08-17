@@ -1,11 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Layout from "./components/Layout";
+import Hero from "./components/Hero";
 import reportWebVitals from "./components/reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Layout />
+    <Layout>
+      <Hero />
+    </Layout>
   </React.StrictMode>,
   document.getElementById("root")
 );
