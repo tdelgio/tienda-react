@@ -1,4 +1,4 @@
-export const CartIcon = () => (
+export const CartWidget = () => (
   <svg
     width="25"
     height="25"

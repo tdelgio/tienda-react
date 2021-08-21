@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CartIcon } from "./Icons";
+import { CartWidget } from "./Icons";
 import { Logo } from "./Logo";
 
 const NavBar = () => {
@@ -14,7 +14,7 @@ const NavBar = () => {
           <a href="/">Outlet</a>
           <a href="/">Contact</a>
           <a href="/" className="absolute right-0">
-            <CartIcon />
+            <CartWidget />
           </a>
         </div>
       </div>
