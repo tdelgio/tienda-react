@@ -9,8 +9,7 @@ const NavBar = () => {
     <div className="fixed block top-0 w-full shadow-md z-50 bg-gray-50">
       <div className="relative flex items-center mx-6 py-2">
         <Logo />
-        <div className="ml-8 space-x-4">
-          <a href="/">Home</a>
+        <div className="ml-4 lg:ml-8 space-x-4 text-sm">
           <a href="/">Shop</a>
           <a href="/">Outlet</a>
           <a href="/">Contact</a>
@@ -20,6 +19,7 @@ const NavBar = () => {
         </div>
       </div>
     </div>
+    //Mobile
   );
 };
 
