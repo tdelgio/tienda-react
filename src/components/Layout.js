@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <div>
       <NavBar />
-      <main className="block bg-gray-100 min-h-screen pt-14">{children}</main>
+      <main className="block bg-gray-100 pt-14 pb-4">{children}</main>
       <Footer />
     </div>
   );
