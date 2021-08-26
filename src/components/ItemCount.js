@@ -24,13 +24,13 @@ const AddIcon = () => (
   </svg>
 );
 
-export const ItemCount = () => {
+export const ItemCount = ({ stock = "5" }) => {
   const [count, setCount] = useState(0);
   const handleClickAdd = () => {
-    setCount(count + 1);
+    count < stock ? setCount(count + 1) : setCount(count);
   };
   const handleClickRemove = () => {
-    setCount(count - 1);
+    count === 0 ? setCount(0) : setCount(count - 1);
   };
 
   return (
