@@ -1,23 +1,19 @@
 import React from "react";
-
-const Item = ({ name }) => (
-  <li className="h-12 lg:h-40 lg:w-80 shadow-md rounded-md my-4 mx-2 lg:max-w-md flex items-center justify-center">
-    {name}
-  </li>
-);
+import Item from "./Item";
+import Item1 from "../images/item1.jpg";
 
 const ItemListContainer = () => {
   return (
-    <div className="py-4 px-2 h-full border-b border-gray-300">
-      <ul className="flex flex-col justify-center lg:px-4 lg:flex-row lg:flex-wrap">
-        <Item name="Item 1" />
-        <Item name="Item 2" />
-        <Item name="Item 3" />
-        <Item name="Item 4" />
-        <Item name="Item 5" />
-        <Item name="Item 6" />
-        <Item name="Item 7" />
-        <Item name="Item 8" />
+    <div className="py-4 px-2 h-full border-b border-gray-300 mx-auto">
+      <ul className="flex flex-col items-center min-w-md justify-center lg:px-4 lg:flex-row lg:flex-wrap w-full">
+        <Item src={Item1} />
+        <Item src={Item1} />
+        <Item src={Item1} />
+        <Item src={Item1} />
+        <Item src={Item1} />
+        <Item src={Item1} />
+        <Item src={Item1} />
+        <Item src={Item1} />
       </ul>
     </div>
   );
