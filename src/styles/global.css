@@ -1,7 +1,7 @@
 @tailwind base;
 @layer base {
   body {
-    @apply tracking-wider;
+    @apply tracking-wider text-gray-600;
     margin: 0;
     font-family: "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
       "Droid Sans", "Helvetica Neue", sans-serif;
