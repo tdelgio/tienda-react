@@ -1,36 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import ItemListContainer from "./ItemListContainer";
-import ItemDetailContainer from "./ItemDetailContainer";
+import Layout from "./Layout";
 
-import AnimationSpin from "./AnimationSpin";
+import ItemListContainer from "./containers/ItemListContainer";
+import ItemDetailContainer from "./containers/ItemDetailContainer";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch(`https://fakestoreapi.com/products`)
-      .then((res) => res.json())
-      .then((resp) => setProducts(resp));
-    setLoading(false);
-  }, []);
-
-  console.log(products);
-
   return (
-    <>
-      <div className="block z-0 h-full bg-gray-100">
-        {loading ? (
-          <AnimationSpin />
-        ) : (
-          <>
-            <ItemListContainer products={products} />
-            <ItemDetailContainer />
-          </>
-        )}
-      </div>
-    </>
+    <Router>
+      <Layout>
+        <div className="block z-0 h-full bg-gray-100">
+          <Switch>
+            <Route exact path="/">
+              <ItemListContainer />
+            </Route>
+            <Route exact path="/category/:category">
+              <ItemListContainer />
+            </Route>
+            <Route exact path="/category/:category">
+              <ItemListContainer />
+            </Route>
+            <Route exact path="/category/:category">
+              <ItemListContainer />
+            </Route>
+            <Route exact path="/category/:category">
+              <ItemListContainer />
+            </Route>
+            <Route exact path="/details/:id">
+              <ItemDetailContainer />
+            </Route>
+          </Switch>
+        </div>
+      </Layout>
+    </Router>
   );
 };
 

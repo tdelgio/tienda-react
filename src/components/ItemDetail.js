@@ -1,8 +1,8 @@
 import React from "react";
 
-const ItemDetail = ({ id, title, src, description, category, price }) => {
+const ItemDetail = ({ id, title, src, description, categoria, price }) => {
   return (
-    <div key={id}>
+    <div className="w-1/2" key={id}>
       <img
         src={src}
         placeholder="blurred"
@@ -13,7 +13,7 @@ const ItemDetail = ({ id, title, src, description, category, price }) => {
       <h2>{title}</h2>
       <p>{description}</p>
       <p>{price}</p>
-      <p>{category}</p>
+      <p>{categoria}</p>
     </div>
   );
 };
