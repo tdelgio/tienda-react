@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-import { CartWidget, MenuIcon, CloseIcon } from "./Icons";
+import { CartWidget, MenuIcon } from "./Icons";
 import { Logo } from "./Logo";
 import NavItemsMobile from "./NavItemsMobile";
 
@@ -44,10 +44,10 @@ const NavBar = () => {
               Pizzas
             </NavLink>
           </div>
-          <NavLink to="/cart" className="absolute right-10">
+          <NavLink to="/cart" className="absolute right-14">
             <CartWidget />
           </NavLink>
-          <div className="absolute right-2 xl:hidden">
+          <div className="absolute right-4 xl:hidden">
             <div
               onClick={() =>
                 display === "hidden"
@@ -55,7 +55,7 @@ const NavBar = () => {
                   : setDisplay("hidden")
               }
             >
-              <MenuIcon />
+              <MenuIcon display={display} />
             </div>
           </div>
           <NavItemsMobile display={display} setDisplay={setDisplay} />
