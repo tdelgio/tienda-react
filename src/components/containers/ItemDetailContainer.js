@@ -11,26 +11,20 @@ import ItemDetail from "../ItemDetail";
 import AnimationSpin from "../AnimationSpin";
 
 const ItemDetailContainer = () => {
-  const [item, setItem] = useState([{}]);
+  const [item, setItem] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const { id } = useParams;
+  const { id } = useParams();
 
   useEffect(() => {
-    if (id === undefined) {
-      getProducts.then((response) => {
-        setItem(response);
-      });
-    } else {
-      getProducts.then((response) =>
-        setItem(response.filter((i) => id === i.id))
-      );
-    }
+    getProducts.then((response) => {
+      setItem(response.find((i) => parseInt(id) === i.id));
+      setLoading(false);
+    });
   }, [id]);
-  console.log(item);
 
   return (
-    <div className="h-full w-1/2 mx-auto">
+    <div className="h-1/2 w-1/2 mx-auto">
       {loading ? <AnimationSpin /> : <ItemDetail item={item} />}
     </div>
   );

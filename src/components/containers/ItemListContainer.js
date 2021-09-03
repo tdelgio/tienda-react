@@ -26,8 +26,6 @@ const ItemListContainer = () => {
     }
   }, [category]);
 
-  console.log(products);
-
   return (
     <div className="py-4 px-2 h-full border-b border-gray-300 mx-auto">
       <ul className="flex flex-col items-center min-w-md justify-center lg:px-4 lg:flex-row lg:flex-wrap w-full">
