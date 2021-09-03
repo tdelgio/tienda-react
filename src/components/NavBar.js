@@ -13,7 +13,7 @@ const NavBar = () => {
 
     <div className="fixed  block top-0 w-full shadow-md z-50 bg-gray-50">
       <div className="relative flex items-center px-4 py-2">
-        <NavLink to="/">
+        <NavLink onClick={() => setDisplay("hidden")} to="/">
           <Logo />
         </NavLink>
 
