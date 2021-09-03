@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ItemDetail = ({ item }) => {
   console.log(item.name);
   return (
-    <div className="flex  items-center ">
+    <div className="flex items-center w-full">
       <div
         className="flex flex-col xl:flex-row items-center justify-around min-h-full w-full py-4 border-2 border-gray-200"
         key={item.id}
@@ -15,7 +15,7 @@ const ItemDetail = ({ item }) => {
           alt="item"
           width={300}
           height={400}
-          className=" h-80 shadow-md"
+          className=" h-80 shadow-md rounded-md"
         />
         <div className="flex flex-col justify-around h-72 ml-2">
           <h2 className="font-bold pt-2 text-xl">{item.title}</h2>

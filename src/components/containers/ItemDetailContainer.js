@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   return (
-    <div className="h-1/2 w-1/2 mx-auto">
+    <div className="lg:h-1/2 lg:w-1/2 mx-auto">
       {loading ? <AnimationSpin /> : <ItemDetail item={item} />}
     </div>
   );

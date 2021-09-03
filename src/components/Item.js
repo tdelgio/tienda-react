@@ -4,23 +4,26 @@ import { Link } from "react-router-dom";
 import ItemCount from "./ItemCount";
 import { AddToCart } from "./Buttons";
 
+import { InfoIcon } from "./Icons";
+
 const Item = ({ id, image, stock, name, price, description, category }) => {
   return (
     <div className="flex flex-col  justify-between my-4 mx-2 h-full lg:w-80 shadow-md rounded-md max-w-md w-full pb-2">
-      <li className="h-full w-full">
+      <li className="relative h-full w-full">
         <Link to={`/details/${id}`}>
           <img
             src={image}
             placeholder="blurred"
             height={400}
             alt="item"
-            className="w-full h-80 rounded-t-md"
+            className=" w-full h-80 rounded-t-md"
           />
+          <InfoIcon className="absolute top-2 right-2" />
         </Link>
       </li>
       <div className="ml-2">
         <h2 className="font-bold pt-2 text-xl">{name}</h2>
-        <p className="h-12">{description}</p>
+        <p className="h-12 tracking-normal">{description}</p>
         <h3 className="font-semibold ">
           {`$`}
           {price}
