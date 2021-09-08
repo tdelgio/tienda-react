@@ -2,7 +2,7 @@ import React from "react";
 
 const AnimationSpin = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center flex-inline text-gray-600">
+    <div className="min-h-screen flex items-center justify-center flex-inline text-gray-600 transform -translate-y-24">
       <svg
         className="animate-spin -ml-1 mr-3 h-5 w-5 text-gray-500"
         xmlns="http://www.w3.org/2000/svg"
