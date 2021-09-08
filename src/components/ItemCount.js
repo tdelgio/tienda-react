@@ -24,8 +24,7 @@ const AddIcon = () => (
   </svg>
 );
 
-export const ItemCount = ({ stock = "5" }) => {
-  const [count, setCount] = useState(1);
+export const ItemCount = ({ stock, count, setCount }) => {
   const handleClickAdd = () => {
     count < stock ? setCount(count + 1) : setCount(count);
   };

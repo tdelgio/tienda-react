@@ -31,7 +31,6 @@ const Item = ({ id, image, stock, name, price, description, category }) => {
       </div>
 
       <div className="w-full pt-4 px-1 lg:px-2 space-y-2 flex flex-col items-center">
-        <ItemCount stock={stock} />
         <AddToCart />
         <Link
           to={`/details/${id}`}
