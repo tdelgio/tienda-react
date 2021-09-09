@@ -1,8 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-export const AddToCart = () => {
+export const AddToCart = ({ setDisplay }) => {
   return (
-    <button className="flex items-center justify-between border-2 rounded-md max-w-xs w-full shadow-sm">
+    <button
+      onClick={() => setDisplay("block")}
+      className="flex items-center justify-between border-2 rounded-md max-w-xs w-full shadow-sm"
+    >
       <span className="p-2 border-r-2 flex-shrink">
         <svg
           width="24"
@@ -21,5 +25,16 @@ export const AddToCart = () => {
 
       <span className="px-5 mx-auto">Agregar al carrito</span>
     </button>
+  );
+};
+
+export const FinishButton = () => {
+  return (
+    <Link
+      to="/cart"
+      className="flex items-center justify-between border-2 rounded-md max-w-xs w-full shadow-sm bg-gray-800 text-gray-200"
+    >
+      <span className="px-5 p-2 mx-auto">Terminar Compra</span>
+    </Link>
   );
 };

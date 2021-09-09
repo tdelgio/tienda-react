@@ -1,11 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ item }) => {
-  const [count, setCount] = useState(1);
-  console.log(count);
   return (
     <div className="flex items-center w-full">
       <div
@@ -27,15 +24,7 @@ const ItemDetail = ({ item }) => {
             {`$`}
             {item.price}
           </h3>
-          <div className="flex flex-col">
-            <ItemCount stock={item.stock} count={count} setCount={setCount} />
-            <Link
-              to={`/cart`}
-              className="py-2 px-4 bg-gray-200 text-gray-600 text-center mt-2 shadow-md w-full max-w-xs"
-            >
-              Terminar Compra
-            </Link>
-          </div>
+          <ItemCount stock={item.stock} />
         </div>
       </div>
     </div>

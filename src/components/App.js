@@ -5,6 +5,7 @@ import Layout from "./Layout";
 import ItemListContainer from "./containers/ItemListContainer";
 import ItemDetailContainer from "./containers/ItemDetailContainer";
 import { CartContext } from "../context/ cartContext";
+import Cart from "./Cart";
 
 console.log([CartContext]);
 
@@ -18,20 +19,23 @@ const App = () => {
               <Route exact path="/">
                 <ItemListContainer />
               </Route>
-              <Route exact path="/category/:category">
+              <Route path="/category/:category">
                 <ItemListContainer />
               </Route>
-              <Route exact path="/category/:category">
+              <Route path="/category/:category">
                 <ItemListContainer />
               </Route>
-              <Route exact path="/category/:category">
+              <Route path="/category/:category">
                 <ItemListContainer />
               </Route>
-              <Route exact path="/category/:category">
+              <Route path="/category/:category">
                 <ItemListContainer />
               </Route>
-              <Route exact path="/details/:id">
+              <Route path="/details/:id">
                 <ItemDetailContainer />
+              </Route>
+              <Route path="/cart">
+                <Cart />
               </Route>
             </Switch>
           </div>

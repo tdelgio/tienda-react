@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
+import { AddToCart, FinishButton } from "./Buttons";
 
 const RemoveIcon = () => (
   <svg
@@ -24,7 +27,10 @@ const AddIcon = () => (
   </svg>
 );
 
-export const ItemCount = ({ stock, count, setCount }) => {
+export const ItemCount = ({ stock }) => {
+  const [count, setCount] = useState(1);
+  const [display, setDisplay] = useState("hidden");
+
   const handleClickAdd = () => {
     count < stock ? setCount(count + 1) : setCount(count);
   };
@@ -33,7 +39,7 @@ export const ItemCount = ({ stock, count, setCount }) => {
   };
 
   return (
-    <div className="max-w-xs w-full shadow-sm">
+    <div className="flex flex-col justify-around max-w-xs h-full w-full">
       <div className="flex flex-shrink items-center  border-2 rounded-md ">
         <button className="border-r-2 p-2" onClick={handleClickRemove}>
           <RemoveIcon />
@@ -42,6 +48,13 @@ export const ItemCount = ({ stock, count, setCount }) => {
         <button className="border-l-2 p-2 flex-shrink" onClick={handleClickAdd}>
           <AddIcon />
         </button>
+      </div>
+      <div>
+        {display === "block" ? (
+          <FinishButton />
+        ) : (
+          <AddToCart setDisplay={setDisplay} />
+        )}
       </div>
     </div>
   );

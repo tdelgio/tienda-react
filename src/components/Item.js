@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import ItemCount from "./ItemCount";
-import { AddToCart } from "./Buttons";
-
 import { InfoIcon } from "./Icons";
 
 const Item = ({ id, image, stock, name, price, description, category }) => {
@@ -31,7 +28,6 @@ const Item = ({ id, image, stock, name, price, description, category }) => {
       </div>
 
       <div className="w-full pt-4 px-1 lg:px-2 space-y-2 flex flex-col items-center">
-        <AddToCart />
         <Link
           to={`/details/${id}`}
           className="py-2 px-4 bg-gray-200 text-gray-600 text-center mt-2 shadow-md w-full max-w-xs"
