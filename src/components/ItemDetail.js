@@ -1,8 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 
+import { CartContext } from "../context/CartContext";
 import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ item }) => {
+  const { setCart, addItem } = useContext(CartContext);
+
+  const onAdd = (count) => {
+    setCart(count);
+    addItem(item, count);
+    // console.log(count);
+  };
+
   return (
     <div className="flex items-center w-full">
       <div
@@ -24,7 +33,7 @@ const ItemDetail = ({ item }) => {
             {`$`}
             {item.price}
           </h3>
-          <ItemCount stock={item.stock} />
+          <ItemCount stock={item.stock} onAdd={onAdd} />
         </div>
       </div>
     </div>

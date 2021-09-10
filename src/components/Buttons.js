@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const AddToCart = ({ setDisplay }) => {
+export const AddToCart = ({ handleOnAdd }) => {
   return (
     <button
-      onClick={() => setDisplay("block")}
+      onClick={handleOnAdd}
       className="flex items-center justify-between border-2 rounded-md max-w-xs w-full shadow-sm"
     >
       <span className="p-2 border-r-2 flex-shrink">
@@ -32,9 +32,20 @@ export const FinishButton = () => {
   return (
     <Link
       to="/cart"
-      className="flex items-center justify-between border-2 rounded-md max-w-xs w-full shadow-sm bg-gray-800 text-gray-200"
+      className="flex items-center justify-between border-2 rounded-md max-w-xs w-full shadow-sm bg-gray-700 text-gray-200"
     >
-      <span className="px-5 p-2 mx-auto">Terminar Compra</span>
+      <span className="px-5 p-2 mx-auto">Terminar compra</span>
+    </Link>
+  );
+};
+
+export const BackHome = () => {
+  return (
+    <Link
+      to="/"
+      className="flex items-center justify-between border-2 rounded-md max-w-xs w-full shadow-sm bg-gray-600 text-gray-200"
+    >
+      <span className="px-5 p-2 mx-auto">Seguir Comprando</span>
     </Link>
   );
 };

@@ -1,17 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Layout from "./Layout";
 import ItemListContainer from "./containers/ItemListContainer";
 import ItemDetailContainer from "./containers/ItemDetailContainer";
-import { CartContext } from "../context/ cartContext";
+import { CartContextProvider } from "../context/CartContext";
 import Cart from "./Cart";
-
-console.log([CartContext]);
 
 const App = () => {
   return (
-    <CartContext.Provider>
+    <CartContextProvider>
       <Router>
         <Layout>
           <div className="block z-0 h-full bg-gray-100">
@@ -41,7 +39,7 @@ const App = () => {
           </div>
         </Layout>
       </Router>{" "}
-    </CartContext.Provider>
+    </CartContextProvider>
   );
 };
 

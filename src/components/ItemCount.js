@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
-import { AddToCart, FinishButton } from "./Buttons";
+import { AddToCart, FinishButton, BackHome } from "./Buttons";
 
 const RemoveIcon = () => (
   <svg
@@ -27,8 +26,9 @@ const AddIcon = () => (
   </svg>
 );
 
-export const ItemCount = ({ stock }) => {
-  const [count, setCount] = useState(1);
+export const ItemCount = ({ stock, onAdd }) => {
+  const initial = 1;
+  const [count, setCount] = useState(initial);
   const [display, setDisplay] = useState("hidden");
 
   const handleClickAdd = () => {
@@ -37,6 +37,17 @@ export const ItemCount = ({ stock }) => {
   const handleClickRemove = () => {
     count === 1 ? setCount(1) : setCount(count - 1);
   };
+
+  const handleOnAdd = () => {
+    onAdd(count);
+    setCount(initial);
+    setDisplay("block");
+  };
+
+  // const { cart, setCart } = useContext(CartContext);
+  // console.log(cart);
+
+  // const item = { id: "1", title: "item cargado desde count" };
 
   return (
     <div className="flex flex-col justify-around max-w-xs h-full w-full">
@@ -51,9 +62,19 @@ export const ItemCount = ({ stock }) => {
       </div>
       <div>
         {display === "block" ? (
-          <FinishButton />
+          <div className="space-y-2">
+            <FinishButton />
+            <BackHome />
+          </div>
         ) : (
-          <AddToCart setDisplay={setDisplay} />
+          <>
+            <AddToCart setDisplay={setDisplay} handleOnAdd={handleOnAdd} />
+            {/* //   onClick={() => {
+          //     setCart(item);
+          //   }}
+          // >
+          //   addToCart*/}
+          </>
         )}
       </div>
     </div>
