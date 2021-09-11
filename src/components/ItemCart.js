@@ -8,7 +8,7 @@ const ItemCart = ({ name, price, url, count }) => {
 
   return (
     <div className="flex flex-col justify-between my-4 mx-2 h-full shadow-md rounded-md max-w-lg w-full py-4">
-      <div className="ml-2 flex items-center">
+      <div className="ml-2 flex flex-col lg:flex-row items-center">
         <img
           src={url}
           placeholder="blurred"
@@ -17,7 +17,7 @@ const ItemCart = ({ name, price, url, count }) => {
           height={50}
           className=" h-12 w-14 shadow-md rounded-md  "
         />
-        <div className="flex flex-col items-start justify-center px-4 w-full">
+        <div className="flex flex-col items-center lg:items-start justify-center px-4 w-full">
           <h2 className="font-bold text-xl whitespace-nowrap">{name}</h2>
           <p className="tracking-normal ">${price}</p>
         </div>
