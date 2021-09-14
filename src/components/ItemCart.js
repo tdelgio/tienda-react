@@ -1,6 +1,6 @@
 import React from "react";
 
-import { RemoveItem } from "./Icons";
+import { RemoveIcon } from "./Buttons";
 
 const ItemCart = ({ name, price, url, count, id }) => {
   return (
@@ -24,7 +24,9 @@ const ItemCart = ({ name, price, url, count, id }) => {
         <div className="rounded-sm h-12 whitespace-nowrap mx-2 font-bold flex items-center">
           $ Total
         </div>
-        <RemoveItem id={id} />
+        <div>
+          <RemoveIcon />
+        </div>
       </div>
     </div>
   );
