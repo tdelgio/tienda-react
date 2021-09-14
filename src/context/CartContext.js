@@ -19,11 +19,19 @@ export const CartContextProvider = ({ children }) => {
     return setCart(cartFilter);
   };
 
-  console.log(cart);
+  const cartWidgetItems = cart.length;
 
   return (
     <CartContext.Provider
-      value={{ variable, cart, setCart, addItem, clearCart, removeItem }}
+      value={{
+        variable,
+        cart,
+        setCart,
+        addItem,
+        clearCart,
+        removeItem,
+        cartWidgetItems,
+      }}
     >
       {children}
     </CartContext.Provider>

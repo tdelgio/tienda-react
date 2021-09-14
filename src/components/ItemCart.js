@@ -1,13 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 
-import { CartContext } from "../context/CartContext";
 import { RemoveItem } from "./Icons";
 
-const ItemCart = ({ name, price, url, count }) => {
-  const { removeItem } = useContext(CartContext);
-
+const ItemCart = ({ name, price, url, count, id }) => {
   return (
-    <div className="flex flex-col justify-between my-4 mx-2 h-full shadow-md rounded-md max-w-lg w-full py-4">
+    <div className="flex flex-col justify-between mx-2  h-full shadow-md rounded-md max-w-lg w-full py-4">
       <div className="ml-2 flex flex-col lg:flex-row items-center">
         <img
           src={url}
@@ -27,7 +24,7 @@ const ItemCart = ({ name, price, url, count }) => {
         <div className="rounded-sm h-12 whitespace-nowrap mx-2 font-bold flex items-center">
           $ Total
         </div>
-        <RemoveItem removeItem={removeItem} />
+        <RemoveItem id={id} />
       </div>
     </div>
   );
