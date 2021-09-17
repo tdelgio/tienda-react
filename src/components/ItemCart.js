@@ -3,8 +3,10 @@ import { useCartContext } from "../context/CartContext";
 
 import { RemoveIcon } from "./Buttons";
 
-const ItemCart = ({ name, price, url, id, quantity, removeItem }) => {
-  console.log(id);
+const ItemCart = ({ name, price, url, id, quantity }) => {
+  const { removeItem } = useCartContext();
+  const handleRemove = () => removeItem(id);
+
   return (
     <div className="flex flex-col justify-between mx-2  h-full shadow-md rounded-md max-w-lg w-full py-4">
       <div className="ml-2 flex flex-col lg:flex-row items-center">
@@ -26,7 +28,7 @@ const ItemCart = ({ name, price, url, id, quantity, removeItem }) => {
           </span>
         </div>
 
-        <button>
+        <button onClick={handleRemove}>
           <RemoveIcon />
         </button>
       </div>
