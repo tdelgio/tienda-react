@@ -1,8 +1,8 @@
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import React from "react";
+import { useCartContext } from "../context/CartContext";
 
 export const CartWidget = () => {
-  const { cartWidgetItems } = useContext(CartContext);
+  const { cartWidgetItems } = useCartContext();
   return (
     <div className="relative bg-gray-200 rounded-full p-3">
       <svg
@@ -25,9 +25,9 @@ export const CartWidget = () => {
           fill="black"
         />
       </svg>
-      {cartWidgetItems === 0 ? null : (
+      {cartWidgetItems() === 0 ? null : (
         <div className="flex items-center justify-center font-bold absolute top-0 -right-1 h-4 w-4 lg:h-5 lg:w-5 lg:-right-2 rounded-full bg-red-600 text-red-100 text-xs">
-          {cartWidgetItems}
+          {cartWidgetItems()}
         </div>
       )}
     </div>
@@ -115,8 +115,8 @@ export const MenuIcon = ({ display }) => {
   );
 };
 
-export const RemoveItem = ({ removeItem }) => (
-  <button onClick={removeItem}>
+export const RemoveItem = () => (
+  <button>
     <svg
       width="24"
       height="24"

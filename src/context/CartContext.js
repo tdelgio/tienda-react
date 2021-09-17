@@ -1,25 +1,50 @@
-import React, { createContext, useState } from "react";
+import React, { useContext, createContext, useState } from "react";
 
-export const CartContext = createContext();
+//creacion del contexto
+const CartContext = createContext();
 
+//funcion para ahorrarme dos importaciones
+export const useCartContext = () => useContext(CartContext);
+
+//Inyectar los estados y funciones globales, enmascaro provider
 export const CartContextProvider = ({ children }) => {
   let variable = "desde context";
   const [cart, setCart] = useState([]);
 
   const addItem = (item, quantity) => {
-    setCart([...cart, { item, quantity }]);
+    const index = cart.findIndex((i) => i.item.id === item.id);
+    if (index > -1) {
+      const oldQy = cart[index].quantity;
+      cart.splice(index, 1);
+      setCart([...cart, { item, quantity: quantity + oldQy }]);
+    } else {
+      setCart([...cart, { item, quantity }]);
+    }
   };
 
   const clearCart = () => {
     setCart([]);
   };
 
-  const removeItem = (itemId) => {
-    const cartFilter = cart.filter((element) => element.item.id !== itemId);
-    return setCart(cartFilter);
+  const removeItem = (id) => {
+    const deleteProduct = cart.filter((prod) => prod.item.id !== id);
+    setCart([...deleteProduct]);
   };
 
-  const cartWidgetItems = cart.length;
+  //[1,2,3,4] acum = 0 => 1, 1+2 => 3+3
+  const cartWidgetItems = () => {
+    return cart.reduce((acum, valor) => acum + valor.quantity, 0);
+    // return cart.length;
+  };
+
+  const totalPrice = () => {
+    return cart.reduce(
+      (acum, valor) => acum + valor.quantity * valor.item.price,
+      0
+    );
+  };
+
+  console.log(cart);
 
   return (
     <CartContext.Provider
@@ -31,6 +56,7 @@ export const CartContextProvider = ({ children }) => {
         clearCart,
         removeItem,
         cartWidgetItems,
+        totalPrice,
       }}
     >
       {children}
