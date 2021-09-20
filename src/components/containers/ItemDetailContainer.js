@@ -4,6 +4,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { getFirestore } from "../../services/getFirebase";
 
 import { getProducts } from "../../utils/promises";
 
@@ -11,17 +12,25 @@ import ItemDetail from "../ItemDetail";
 import AnimationSpin from "../AnimationSpin";
 
 const ItemDetailContainer = () => {
-  const [item, setItem] = useState({});
+  const [item, setItem] = useState([]);
   const [loading, setLoading] = useState(true);
-
   const { id } = useParams();
+  let idStr = parseInt(id);
 
   useEffect(() => {
-    getProducts.then((response) => {
-      setItem(response.find((i) => parseInt(id) === i.id));
-      setLoading(false);
-    });
-  }, [id]);
+    const db = getFirestore();
+    db.collection("items")
+      .where("id", "==", idStr)
+      .get()
+
+      .then((response) => {
+        response.forEach((doc) => {
+          // console.log(doc.id, '=>', doc.data());
+          setItem(doc.data());
+        });
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="lg:h-1/2 lg:w-1/2 mx-auto">

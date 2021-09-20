@@ -4,48 +4,50 @@ import ItemList from "../ItemList";
 import { getProducts } from "../../utils/promises";
 
 import AnimationSpin from "../AnimationSpin";
-// import { getFirestore } from "../../services/getFirebase";
+import { getFirestore } from "../../services/getFirebase";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { category } = useParams();
+  let categoryStr = category;
 
   useEffect(() => {
-    if (category === undefined) {
-      getProducts.then((response) => {
-        setProducts(response);
-        setLoading(false);
-      });
-    } else {
-      getProducts.then(
-        (response) =>
-          setProducts(response.filter((i) => category === i.category)),
-        setLoading(false)
-      );
-    }
+    // if (category === undefined) {
+    //   getProducts.then((response) => {
+    //     setProducts(response);
+    //     setLoading(false);
+    //   });
+    // } else {
+    //   getProducts.then(
+    //     (response) =>
+    //       setProducts(response.filter((i) => category === i.category)),
+    //     setLoading(false)
+    //   );
+    // }
 
-    // const db = getFirestore();
-    // const itemCollection = db
-    //   .collection("items")
-    //   // .doc("E56cK8WWPMqFA00HD8ZE")    PARA EL ITEM DETAIL
-    //   .get()
-    //   .then((response) => {
-    //     if (response.size === 0) {
-    //       console.log("vacio");
-    //     } else {
-    //       if (category === undefined) {
-    //         setProducts(response.docs.map((i) => i.data()));
-    //       } else {
-    //         console.log(response);
-    //       }
-    //     }
-    //   })
-    // .catch((error) => {
-    //   console.log("Error searching items", error);
-    // })
-    // .finally(() => setLoading(false));
+    const db = getFirestore();
+    const itemCollection = db
+      .collection("items")
+      // const query = itemCollection.where("category", "==", categoryStr)
+      .get()
+      .then((response) => {
+        if (response.size === 0) {
+          console.log("vacio");
+        } else {
+          if (category === undefined) {
+            setProducts(response.docs.map((i) => i.data()));
+          } else {
+            let data = response.docs.map((i) => i.data());
+            setProducts(data.filter((i) => i.category === category)); //como filtro
+          }
+        }
+      })
+      .catch((error) => {
+        console.log("Error searching items", error);
+      })
+      .finally(() => setLoading(false));
   }, [category]);
 
   return (

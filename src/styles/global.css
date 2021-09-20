@@ -12,6 +12,12 @@
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
   }
+  label {
+    @apply pt-2;
+  }
+  input {
+    @apply py-2 rounded-lg pl-2;
+  }
 }
 @tailwind components;
 @tailwind utilities;
