@@ -44,11 +44,6 @@ export const ItemCount = ({ stock, onAdd }) => {
     setDisplay("block");
   };
 
-  // const { cart, setCart } = useContext(CartContext);
-  // console.log(cart);
-
-  // const item = { id: "1", title: "item cargado desde count" };
-
   return (
     <div className="flex flex-col justify-around max-w-xs h-full w-full">
       <div className="flex flex-shrink items-center  border-2 rounded-md ">
@@ -69,11 +64,6 @@ export const ItemCount = ({ stock, onAdd }) => {
         ) : (
           <>
             <AddToCart setDisplay={setDisplay} handleOnAdd={handleOnAdd} />
-            {/* //   onClick={() => {
-          //     setCart(item);
-          //   }}
-          // >
-          //   addToCart*/}
           </>
         )}
       </div>

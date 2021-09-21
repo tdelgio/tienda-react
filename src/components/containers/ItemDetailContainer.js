@@ -1,12 +1,6 @@
-// Aca va la logica, el useEffect que trae el producto del detail
-// Detalle de cada producto
-// id va en el navbar
-
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getFirestore } from "../../services/getFirebase";
-
-import { getProducts } from "../../utils/promises";
 
 import ItemDetail from "../ItemDetail";
 import AnimationSpin from "../AnimationSpin";
@@ -25,11 +19,11 @@ const ItemDetailContainer = () => {
 
       .then((response) => {
         response.forEach((doc) => {
-          // console.log(doc.id, '=>', doc.data());
           setItem(doc.data());
         });
-        setLoading(false);
-      });
+      })
+      .catch(() => console.log("error"))
+      .finally(() => setLoading(false));
   }, []);
 
   return (

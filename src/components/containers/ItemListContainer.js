@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList";
-import { getProducts } from "../../utils/promises";
 
 import AnimationSpin from "../AnimationSpin";
 import { getFirestore } from "../../services/getFirebase";
@@ -11,26 +10,11 @@ const ItemListContainer = () => {
   const [loading, setLoading] = useState(true);
 
   const { category } = useParams();
-  let categoryStr = category;
 
   useEffect(() => {
-    // if (category === undefined) {
-    //   getProducts.then((response) => {
-    //     setProducts(response);
-    //     setLoading(false);
-    //   });
-    // } else {
-    //   getProducts.then(
-    //     (response) =>
-    //       setProducts(response.filter((i) => category === i.category)),
-    //     setLoading(false)
-    //   );
-    // }
-
     const db = getFirestore();
     const itemCollection = db
       .collection("items")
-      // const query = itemCollection.where("category", "==", categoryStr)
       .get()
       .then((response) => {
         if (response.size === 0) {
@@ -40,7 +24,7 @@ const ItemListContainer = () => {
             setProducts(response.docs.map((i) => i.data()));
           } else {
             let data = response.docs.map((i) => i.data());
-            setProducts(data.filter((i) => i.category === category)); //como filtro
+            setProducts(data.filter((i) => i.category === category));
           }
         }
       })
