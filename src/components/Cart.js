@@ -1,45 +1,16 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
 import { useCartContext } from "../context/CartContext";
-import { TrashIcon } from "./Icons";
-
+import { ButtonPrimary, ButtonClearCart } from "./Buttons";
+import Form from "./Form";
 import ItemCart from "./ItemCart";
 
 const Cart = () => {
-  const [formData, setFormData] = useState(initialState);
-  //manejo de los campos del form
-  function handleChange(e) {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  }
-  // function handleSubmit(e) {
-  //   e.preventDefault();
-
-  //   const newOrder = {
-  //     buyer: formData,
-  //     item: cart,
-  //     total: total,
-  //   };
-  // const db = getFirestore();
-  // const orders = db.collection("orders");
-
-  //controlar si hay stock de los items que quiero agregar
-  // orders
-  //     .add(newOrder)
-  //     .then((response) => console.log(response))
-  //     .finally(() => setFormData(initialState));
-  // }
-
-  console.log(formData);
-
   const { cart, clearCart, cartWidgetItems, totalPrice } = useCartContext();
   const total = totalPrice();
 
   return (
-    <div className="flex flex-col items-center min-h-screen text-center py-12 space-y-4">
+    <div className="flex flex-col items-center min-h-screen h-full text-center py-12 space-y-4 mt-14">
       {cartWidgetItems() > 0 ? (
         cart.map((i) => (
           <>
@@ -54,7 +25,10 @@ const Cart = () => {
           </>
         ))
       ) : (
-        <p>No hay Items en el Carrito</p>
+        <>
+          <p>No hay Items en el Carrito</p>
+          <ButtonPrimary to="/" text="Ir a la tienda" />
+        </>
       )}
       {cartWidgetItems() > 0 && (
         <>
@@ -63,66 +37,13 @@ const Cart = () => {
             <hr className="w-full mt-5 mx-3" />
             <p>${total}</p>
           </div>
-          <Link
-            to="/"
-            className=" flex items-center border-gray-300 p-4 
-        bg-gray-200 text-gray-700 max-w-sm h-12 rounded-md mx-auto"
-          >
-            Seguir Comprando
-          </Link>
+          <ButtonPrimary to="/" text="Seguir Comprando" />
+          <ButtonClearCart clearCart={clearCart} text="Vaciar Carro" />
+          <Form cart={cart} total={total} clearCart={clearCart} />
         </>
-      )}
-      {cartWidgetItems() === 0 && (
-        <Link
-          to="/"
-          className=" flex items-center border-gray-300 p-4 
-        bg-gray-200 text-gray-700 max-w-sm h-12 rounded-md mx-auto"
-        >
-          Ir a la tienda
-        </Link>
-      )}
-
-      {cartWidgetItems() > 0 && (
-        <button
-          onClick={clearCart}
-          className="flex items-center border-gray-300 p-4 bg-gray-200 text-gray-700 max-w-sm h-12 rounded-md mx-auto"
-        >
-          Vaciar Carro
-          <TrashIcon />
-        </button>
-      )}
-      {cartWidgetItems() >= 1 && (
-        <form
-          // onSubmit={handleSubmit}
-          onChange={handleChange}
-          className="space-y-3 w-full max-w-lg py-8"
-        >
-          <div className="flex flex-col items-start rounded-md p-4 shadow-md">
-            <h3 className="font-semibold pb-2">Completa tus Datos:</h3>
-            <label htmlFor="name">Name:</label>
-            <input name="name" className="w-full" id="name" />
-            <label htmlFor="phone">Phone:</label>
-            <input name="phone" className="w-full" id="phone" />
-            <label htmlFor="E-mail">Email:</label>
-            <input name="email1" className="w-full" id="email" />
-            <label htmlFor="E-mail">Confirm Email:</label>
-            <input name="email2" className="w-full" id="email" />
-            {/* ternario y valida */}
-            <button className="flex items-center border-gray-400 px-6 mt-4 bg-gray-300 text-gray-700 max-w-sm h-12 rounded-md mx-auto">
-              Enviar
-            </button>
-          </div>
-        </form>
       )}
     </div>
   );
 };
 
 export default Cart;
-
-const initialState = {
-  name: "",
-  phone: "",
-  email1: "",
-  email2: "",
-};

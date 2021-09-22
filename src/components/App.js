@@ -35,6 +35,9 @@ const App = () => {
               <Route path="/cart">
                 <Cart />
               </Route>
+              <Route path="/confirmation">
+                <div>gracias!</div>
+              </Route>
             </Switch>
           </div>
         </Layout>
