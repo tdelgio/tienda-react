@@ -13,8 +13,7 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     const db = getFirestore();
-    const itemCollection = db
-      .collection("items")
+    db.collection("items")
       .get()
       .then((response) => {
         if (response.size === 0) {

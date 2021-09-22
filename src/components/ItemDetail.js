@@ -9,7 +9,6 @@ const ItemDetail = ({ item }) => {
   const onAdd = (count) => {
     setCart(count);
     addItem(item, count);
-    // console.log(count);
   };
 
   return (

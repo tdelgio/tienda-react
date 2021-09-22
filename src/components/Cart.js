@@ -99,13 +99,13 @@ const Cart = () => {
         >
           <div className="flex flex-col items-start rounded-md p-4 shadow-md">
             <h3 className="font-semibold pb-2">Completa tus Datos:</h3>
-            <label for="name">Name:</label>
+            <label htmlFor="name">Name:</label>
             <input name="name" className="w-full" id="name" />
-            <label for="phone">Phone:</label>
+            <label htmlFor="phone">Phone:</label>
             <input name="phone" className="w-full" id="phone" />
-            <label for="E-mail">Email:</label>
+            <label htmlFor="E-mail">Email:</label>
             <input name="email1" className="w-full" id="email" />
-            <label for="E-mail">Confirm Email:</label>
+            <label htmlFor="E-mail">Confirm Email:</label>
             <input name="email2" className="w-full" id="email" />
             {/* ternario y valida */}
             <button className="flex items-center border-gray-400 px-6 mt-4 bg-gray-300 text-gray-700 max-w-sm h-12 rounded-md mx-auto">

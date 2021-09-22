@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
       })
       .catch(() => console.log("error"))
       .finally(() => setLoading(false));
-  }, []);
+  }, [idStr]);
 
   return (
     <div className="lg:h-1/2 lg:w-1/2 mx-auto">
