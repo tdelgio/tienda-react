@@ -1,5 +1,5 @@
 <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="ecommerce_with_ReactJS_and_TailwindCSS_0"></a>e-commerce with ReactJS and TailwindCSS.</h1>
-<h5 class="code-line" data-line-start=2 data-line-end=3 ><a id="Link_al_demo_2"></a>Link al demo:</h5>
+<h5 class="code-line" data-line-start=2 data-line-end=3 ><a id="Link_al_demo_2"></a>Link to demo:</h5>
 <p class="has-line-data" data-line-start="3" data-line-end="4"><a href="https://tienda-tdelgio.netlify.app">https://tienda-tdelgio.netlify.app</a></p>
 <h4 class="code-line" data-line-start=5 data-line-end=6 ><a id="Libraries_5"></a>Libraries:</h4>
 <ul>
