@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { getFirestore } from "../services/getFirebase";
 
-const Form = ({ handleChange, handleSubmit, clearCart, total, cart }) => {
+const Form = ({ clearCart, total, cart }) => {
   const [formData, setFormData] = useState(initialState);
 
   const db = getFirestore();
@@ -78,11 +78,11 @@ const Form = ({ handleChange, handleSubmit, clearCart, total, cart }) => {
             type="submit"
             className="flex items-center border-gray-400 px-6 mt-4 bg-gray-300 text-gray-700 max-w-sm h-12 rounded-md mx-auto"
           >
-            Enviar
+            Terminar Compra
           </button>
         ) : (
           <div className="flex items-center border-gray-400 px-6 mt-4 bg-gray-200 text-gray-400 max-w-sm h-12 rounded-md mx-auto">
-            Enviar
+            Terminar Compra
           </div>
         )}
       </div>
