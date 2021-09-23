@@ -74,10 +74,7 @@ const Form = ({ clearCart, total, cart }) => {
           }
         />
         {formData.email1 === formData.email2 ? (
-          <button
-            type="submit"
-            className="flex items-center border-gray-400 px-6 mt-4 bg-gray-300 text-gray-700 max-w-sm h-12 rounded-md mx-auto"
-          >
+          <button className="flex items-center border-gray-400 px-6 mt-4 bg-gray-300 text-gray-700 max-w-sm h-12 rounded-md mx-auto">
             Terminar Compra
           </button>
         ) : (

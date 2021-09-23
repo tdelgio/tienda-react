@@ -7,7 +7,7 @@
 <li class="has-line-data" data-line-start="7" data-line-end="8">Firebase: services and data.</li>
 <li class="has-line-data" data-line-start="8" data-line-end="9">TailwindCSS: styles.</li>
 </ul>
-<h2 class="code-line" data-line-start=11 data-line-end=12 ><a id="Instalation_11"></a>Instalation</h2>
+<h2 class="code-line" data-line-start=11 data-line-end=12 ><a id="Instalation_11"></a>Installation</h2>
 <pre><code class="has-line-data" data-line-start="13" data-line-end="17" class="language-sh">git <span class="hljs-built_in">clone</span> https://github.com/tdelgio/tienda-react.git
 npm install
 npm run start
