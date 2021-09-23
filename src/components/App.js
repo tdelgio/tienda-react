@@ -32,7 +32,7 @@ const App = () => {
               <Route path="/details/:id">
                 <ItemDetailContainer />
               </Route>
-              <Route path="/#/cart">
+              <Route path="/cart">
                 <Cart />
               </Route>
             </Switch>
