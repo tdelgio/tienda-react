@@ -18,6 +18,9 @@
   input {
     @apply py-2 rounded-lg pl-2;
   }
+  output{
+    @apply text-gray-600;
+  }
 }
 @tailwind components;
 @tailwind utilities;
